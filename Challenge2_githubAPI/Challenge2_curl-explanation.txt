@@ -1,0 +1,13 @@
+➜  ~ curl "https://api.github.com/repos/d3/d3/commits?since=2017-07-24T00:00:00Z&until=2018-07-24T23:59:59Z" > d3_commits_last-year.txt
+
+➜  ~ curl "https://api.github.com/repos/d3/d3/stats/commit_activity" > d3_commit-activity.txt
+
+curl "https://api.github.com/repos/d3/d3/stats/commit_activity" > d3_commit-activity_recent.txt
+
+I pulled the stats on d3's commit activity for the past year
+
+ ~ curl "https://api.github.com/repos/d3/d3/stats/commit_activity" > d3_commit-activity.txt
+
+and in the past 52 weeks, the maximum number of commits was 9 and occurred 4 weeks ago on week "1521331200," which is basically just the value of 48 weeks of time in seconds.
+
+In order to obtain this number, I wrote a python function that took in the JSON provided through our github API, looped through it and stored the max commit # and week count, and returned these.
